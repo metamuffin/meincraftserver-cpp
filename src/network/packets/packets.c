@@ -20,7 +20,7 @@ int read_varint(int64_t* ret, int* offset, uint8_t* p, int max_length) {
         *ret |= (val << (7 * num_read));
         num_read += 1;
         if (num_read > max_length) return 0;
-        if (num_read > 10) return -1;
+        if (num_read >= 10) return -1;
     } while ((read & 0x80) != 0);
     return 1;
 }
