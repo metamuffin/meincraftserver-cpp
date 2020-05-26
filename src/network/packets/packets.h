@@ -2,12 +2,36 @@
 #define _PACKETS_H_INCLUDED
 
 #include <stdint.h>
+#include <string>
 
 typedef struct packet_t {
     int length;
     int id;
     uint8_t* data;
 } packet;
+
+
+typedef struct packet_handshake
+{
+    int protocol_version;
+    char server_address[];
+    unsigned short server_port;
+    int next_state;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // return 1 for sucess, 0 for error
 int read_packet(packet* p, int data_len, uint8_t* raw_data);

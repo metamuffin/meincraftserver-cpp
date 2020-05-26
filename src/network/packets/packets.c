@@ -5,9 +5,12 @@
 int read_packet(packet* p, int data_len, uint8_t* raw_data) {
     int packet_id = -1;
     int64_t packet_length = 0;
+    int data_offset = 0;
     int packet_length_read_status = read_varint(&packet_length, &data_offset, raw_data, data_len);
     if (packet_length_read_status < 1) return packet_length_read_status;
-    int packet_id_read_status = read_varint(&packet_id, &data_offset, raw_data, )
+    int packet_id_read_status = read_varint(&packet_id, &data_offset, raw_data, data_len);
+    if (packet_id_read_status < 1) return packet_length_read_status;
+    
 }
 
 int read_varint(int64_t* ret, int* offset, uint8_t* p, int max_length) {
