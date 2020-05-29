@@ -2,7 +2,6 @@
 #define _PACKETS_H_INCLUDED
 
 #include <stdint.h>
-#include <string>
 
 typedef struct packet_t {
     int length;
@@ -14,7 +13,7 @@ typedef struct packet_t {
 typedef struct packet_handshake
 {
     int protocol_version;
-    char server_address[];
+    char* server_address;
     unsigned short server_port;
     int next_state;
 };
