@@ -1,9 +1,9 @@
-#include "packets.h"
+#include "packets.hpp"
 
 #include <stdint.h>
 
 int read_packet(packet* p, int data_len, uint8_t* raw_data) {
-    int packet_id = -1;
+    int64_t packet_id = -1;
     int64_t packet_length = 0;
     int data_offset = 0;
     int packet_length_read_status = read_varint(&packet_length, &data_offset, raw_data, data_len);

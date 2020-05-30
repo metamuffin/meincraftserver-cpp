@@ -4,7 +4,7 @@
 #include <sys/socket.h>
 #include <sys/epoll.h>
 
-#include "socket_setup.h"
+#include "socket_setup.hpp"
 
 #define MAX_EVENTS 200
 
