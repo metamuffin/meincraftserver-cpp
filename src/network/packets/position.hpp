@@ -1,9 +1,20 @@
 
 #include <stdint.h>
 
-typedef uint64_t block_position_t;
+class BlockPosition
+{
+public:
+    BlockPosition(uint64_t encoded);
+    BlockPosition(int32_t x, int16_t y, int32_t z);
+    ~BlockPosition();
 
-block_position_t position_from_xyz(int x, int y, int z);
+    BlockPosition* operator+(BlockPosition* b);
 
-block_position_t add_position(block_position_t a, int bx, int by, int bz);
-block_position_t add_position(block_position_t a, block_position_t b);
+    uint64_t getEncoded();
+
+    int32_t x;
+    int16_t y;
+    int32_t z;
+
+
+};
