@@ -8,11 +8,11 @@ export BUILDDIR
 
 debug:
 	$(MAKE) --directory=src
-	$(CC) $(BUILDDIR)/*.o $(LDFLAGS) -o $(BUILDDIR)/main
+	$(CXX) $(BUILDDIR)/*.o $(LDFLAGS) -o $(BUILDDIR)/main
 
 release:
 	$(MAKE) --directory=src
-	$(CC) $(BUILDDIR)/*.o $(LDFLAGS) -o $(BUILDDIR)/main
+	$(CXX) $(BUILDDIR)/*.o $(LDFLAGS) -o $(BUILDDIR)/main
 
 clean:
 	$(RM) $(BUILDDIR)/*.o $(BUILDDIR)/main

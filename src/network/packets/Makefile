@@ -1,9 +1,9 @@
-CFLAGS := -Wall -Wextra -Wpedantic -std=c99
+CXXFLAGS := -Wall -Wextra -Wpedantic -std=c99
 
 BUILDDIR ?= $(shell pwd)/../../../build
 
-debug : CFLAGS += -Og -g
-release : CFLAGS += -Os
+debug : CXXFLAGS += -Og -g
+release : CXXFLAGS += -Os
 
 .PHONY: debug release
 
@@ -14,5 +14,5 @@ release: packets.o
 	mv *.o $(BUILDDIR)/
 
 packets.o: packets.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 

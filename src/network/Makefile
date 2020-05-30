@@ -1,10 +1,10 @@
-CFLAGS := -Wall -Wextra -Wpedantic -std=c99
+CXXFLAGS := -Wall -Wextra -Wpedantic -std=c99
 
 INCLUDEDIRS := -I packets/
 BUILDDIR ?= $(shell pwd)/../../build
 
-debug : CFLAGS += -Og -g
-release : CFLAGS += -Os
+debug : CXXFLAGS += -Og -g
+release : CXXFLAGS += -Os
 
 .PHONY: debug release
 
@@ -16,9 +16,9 @@ release: evloop.o socket_setup.o
 	$(MAKE) --directory=packets
 	mv *.o $(BUILDDIR)/
 
-evloop.o: evloop.c
-	$(CC) $(CFLAGS) $(INCLUDEDIRS) -c $< -o $@
+evloop.o: evloop.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDEDIRS) -c $< -o $@
 
 socket_setup.o: socket_setup.c
-	$(CC) $(CFLAGS) $(INCLUDEDIRS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDEDIRS) -c $< -o $@
 
