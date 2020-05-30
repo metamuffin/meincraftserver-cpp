@@ -72,7 +72,7 @@ int main() {
 				}
 
 				num_other_fds++;
-				int* tmp = realloc(other_fds, num_other_fds * sizeof(*other_fds));
+				int* tmp = (int*) realloc(other_fds, num_other_fds * sizeof(*other_fds));
 				if (tmp == NULL) {
 					perror("realloc failed");
 					ret = 1;
